@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "259f82a1-95be-47bd-b614-746801ac0c88",
+		"name": "TestesAPIJonas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Vingadores",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "459118f0-56b1-42d2-bbb6-2d3c1549c96b",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 10000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(10000);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Russian\");",
+							"    pm.expect(pm.response.text()).to.include(\"together\");",
+							"    pm.expect(pm.response.text()).to.include(\"Loki\");",
+							"});",
+							"",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = JSON.parse(responseBody);",
+							"    tests[\"Verify if Title{} is The Avengers\"] = jsonData.Title === \"The Avengers\";",
+							"    tests[\"Verify if Runtime{} is 143 min\"] = jsonData.Runtime === \"143 min\";",
+							"    tests[\"Verify if Country{} is USA\"] = jsonData.Country === \"USA\";",
+							"    tests[\"Verify if Year{} is 2012\"] = jsonData.Year === \"2012\";",
+							"    tests[\"Verify if Director{} is Joss Whedon\"] = jsonData.Director === \"Joss Whedon\";",
+							"});",
+							"",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://omdbapi.com?t=The Avengers&apikey=5f72e38a",
+					"protocol": "http",
+					"host": [
+						"omdbapi",
+						"com"
+					],
+					"query": [
+						{
+							"key": "t",
+							"value": "The Avengers"
+						},
+						{
+							"key": "apikey",
+							"value": "5f72e38a"
+						}
+					]
+				},
+				"description": "Teste com o filme vingadores"
+			},
+			"response": []
+		},
+		{
+			"name": "Arrow",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8a0b43cb-2d74-4194-84a9-a6c6083a055e",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 10000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(10000);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"vigilante\");",
+							"    pm.expect(pm.response.text()).to.include(\"returns\");",
+							"    pm.expect(pm.response.text()).to.include(\"Adventure\");",
+							"});",
+							"",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = JSON.parse(responseBody);",
+							"    tests[\"Verify if Title{} is Arrow\"] = jsonData.Title === \"Arrow\";",
+							"    tests[\"Verify if Runtime{} is 42 min\"] = jsonData.Runtime === \"42 min\";",
+							"    tests[\"Verify if Country{} is USA\"] = jsonData.Country === \"USA\";",
+							"    tests[\"Verify if Rated{} is TV-14\"] = jsonData.Rated === \"TV-14\";",
+							"    tests[\"Verify if Director{} is N/A\"] = jsonData.Director === \"N/A\";",
+							"});",
+							"",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://omdbapi.com?t=Arrow&apikey=5f72e38a",
+					"protocol": "http",
+					"host": [
+						"omdbapi",
+						"com"
+					],
+					"query": [
+						{
+							"key": "t",
+							"value": "Arrow"
+						},
+						{
+							"key": "apikey",
+							"value": "5f72e38a"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
